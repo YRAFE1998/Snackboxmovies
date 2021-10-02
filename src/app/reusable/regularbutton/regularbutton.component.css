@@ -1,0 +1,9 @@
+.regularbutton{
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.regularbutton:hover{
+    background-color: #FFCCD5 !important;
+}

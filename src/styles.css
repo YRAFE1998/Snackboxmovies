@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "bebas-neue";
+    src: url("./assets/Bebas_Neue/BebasNeue-Regular.ttf");
+}
+
+@font-face {
+    font-family: "sans";
+    src: url("./assets/Fira_Sans/FiraSans-Regular.ttf");
+}
+@font-face {
+    font-family: "roboto";
+    src: url("./assets/Roboto/Roboto-Bold.ttf");
+}
+
+
+
+h1,h2,h3,h4,h5,h6{
+    font-family: "roboto";
+}
+p{
+    font-family: "sans";
+}
+
+button h1, button h2, button h3, button h4, button h5, button h6, button, button p{
+    font-family: "roboto" !important;
+}
+a{
+    font-family: "roboto" !important;
+    font-weight: bold;
+}
+
+body{
+    min-height: 100vh;
+    background-color: #FFF0F3 !important;
+}
+i{
+    color: #A4133C;
+}
+
+.regular-button{
+        padding: 10px 20px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        background-color:#FFB3C1;
+        color:#800F2F;
+        width: 100%
+
+}
+.regular-button:enabled:hover{
+    background-color: #FFCCD5 !important;
+}
+
+.regular-button:disabled{
+    background-color: #FFCCD5 !important;
+    color: #FFB3C1 !important;
+    cursor: not-allowed;
+}

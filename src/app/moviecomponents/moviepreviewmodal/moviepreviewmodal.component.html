@@ -1,0 +1,30 @@
+<div class="modal fade" [id]="movieId" tabindex="-1" [attr.aria-labelledby]="'x'" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" [ngStyle]="{backgroundColor:backgroundcolor}">
+        <h5 class="modal-title" id="x">{{movie?.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-4">
+                <img [src]="movie?.img" alt="movie?.description" class="movieimgcard">
+            </div>
+            <div class="col-8 d-flex flex-column justify-content-start">
+                <h2 class="mb-2">{{movie?.name}}</h2>
+                <p class="mb-2"> <span class="fas fa-star"></span> {{movie?.rating}} </p>
+                <span class="mb-2" > <app-nofuncbutton class="me-2" *ngFor="let elem of movie?.genreId"><p class="m-0" style="font-size: 0.8rem;"> {{elem || -1 | genre: genreList || []}} </p></app-nofuncbutton></span>
+                <!--<p class="text-muted mb-2">{{durationinhours.hours}} h {{durationinhours.minutes}} m</p>-->
+                <p class="text-muted">{{releaseYear}}</p>
+                <p class="mt-4 lines-4">
+                  {{movie?.description}}
+                </p>
+        </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <app-regularbutton [id]="movie?.id" (onButtonClick)="GotoMovie()" [attr.data-bs-dismiss]="'modal'">Go to movie</app-regularbutton>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="d-flex align-items-center searchbox rounded mx-1" [ngClass]="!!isFocused?'outlined':''">
+    <input #searchbar (input)="onSearchChange($event)" type="text" class="unstyledinput rounded" placeholder="search" (blur)='onInputblur($event)' (focus)="onInputfocus($event)">
+
+    <i class="fas fa-search ms-auto"></i>
+</div>

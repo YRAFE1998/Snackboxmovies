@@ -1,0 +1,48 @@
+<div class="container-fluid shadow-sm" [ngStyle]="{'background-color':backgroundcolor}">
+    <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-light" >
+              <a class="navbar-brand me-5" routerLink="/"><img class="imglogo" src="../../assets/images/logo.png"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
+                    <li class="nav-item">
+                      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/" aria-current="page" >Catalog</a>
+                    </li>
+                  </ul>  
+                </div>
+                <div *ngIf="isLoggedIn" class="ms-auto d-flex justify-content-start">
+                  <div class="d-flex align-items-center searchbox rounded mx-1" [ngClass]="!!isFocused?'outlined':''">
+                    <input [(ngModel)]="searchvalue" (input)="searchmovies($event)" type="text" class="unstyledinput rounded" placeholder="search" (blur)='onInputblur($event)' (focus)="onInputfocus($event)">
+                
+                    <i class="fas fa-search ms-auto"></i>
+                </div>
+                
+                  <div class="shadow rounded searchresultcontainer">
+                  <div style="cursor: pointer;" (click)= "gotmovie(movie?.id);clearsearchbar();" *ngFor="let movie of SearchMovieList" class="singleresultcontainer px-2 py-3 rounded">
+                    <div class="d-flex" *ngIf="!isGettingresults">
+                      <div><img [src]="movie.img" class="searchresultimage"></div>
+                      <div class="ps-2">
+                          <h5 style="color: inherit;text-align: left;">{{movie?.name}}</h5>
+                          <div class="text-start">{{movie?.releaseDate?.getFullYear()}}</div>
+                      </div>
+                    </div>
+                    <app-loader *ngIf="isGettingresults"></app-loader>
+                  </div>
+                </div>
+                  <div class="ms-4 dropdown rounded-circle userdropdown" *ngIf="isLoggedIn">
+                  <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user fa-lg"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                  </ul>
+                </div>
+              </div>
+                <!--<app-regularbutton (onButtonClick)="gotoauth()" *ngIf="!isLoggedIn">Login</app-regularbutton>-->
+              </div>
+          </nav>
+    </div>
+</div>

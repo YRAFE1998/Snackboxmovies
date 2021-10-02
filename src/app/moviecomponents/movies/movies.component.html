@@ -1,0 +1,57 @@
+<div class="row my-4">
+    <div class="p-4" *ngIf="!!errormessage">
+        <h3> OOPS, An error has occured, please try again later</h3>
+    </div> 
+    <div *ngIf="isGettingMovieDetails">
+        <div class="py-5 text-center"><app-loader></app-loader></div>
+    </div>
+    <div class="col-12 col-md-3" *ngIf="!errormessage && !isGettingMovieDetails">
+        <img class="rounded movieimgcard shadow-sm" [src]="movie?.posterpath" alt="">
+    </div>
+    <div class="mt-4 mt-md-0 col-12 col-md-9 d-flex flex-column justify-content-end" *ngIf="!errormessage && !isGettingMovieDetails">
+            <h2 class="mb-4">{{movie?.name}}</h2>
+            <p class="mb-3"> 
+                <span class="fas fa-star rounded-circle "></span> {{movie?.rating}}
+                 <span class="ms-4 fas fa-box-open rounded-circle"></span> {{movie?.popularity}}  
+                 <span class="ms-4 fas fa-language rounded-circle"></span> {{movie?.language}} 
+                <span class="ms-4 fas fa-globe-americas rounded-circle"></span> 
+                {{movie?.productionCountries | productionCountryStringify}} 
+                
+                <span class="ms-4 fas rounded-circle" [ngClass]="movie?.watchrating == '18+'?'fa-male':'fa-child'"></span>
+                 {{movie?.watchrating}}
+                
+                </p>
+            <span class="mb-2" > <app-nofuncbutton class="me-2" *ngFor="let elem of movie?.genres"><p class="m-0" style="font-size: 0.8rem;"> {{elem?.name}} </p></app-nofuncbutton></span>
+            <p class="text-muted mb-2">{{movie?.duration || 0 | durationinhours}}</p>
+            <p class="text-muted">{{movie?.releaseDate | date:"dd/MM/yyyy" }}</p>
+    </div>
+</div>
+<div class="row mt-4" *ngIf="!errormessage && !isGettingMovieDetails">
+    <div class="desc col-12">
+        <p>
+            {{movie?.description}}
+        </p>
+    </div>
+</div>
+
+<div class="row my-4" >
+    <div class="col-12 col-sm-4 col-lg-2" *ngFor="let movie of similarmovies">
+        <app-moviecard [movie]="movie"  *ngIf="!isGettingSimilarMovies"></app-moviecard>
+        <div *ngIf="isGettingSimilarMovies">
+            <div class="py-5 text-center"><app-loader></app-loader></div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-6">
+        <iframe *ngIf="videoAvailable && !isGettingMovievideo" width="100%" height="300" #iframe [src]="videosrc"
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+         gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+        <div *ngIf="isGettingMovievideo">
+            <div class="py-5 text-center"><app-loader></app-loader></div>
+        </div>
+    </div>
+</div>
+
+
+

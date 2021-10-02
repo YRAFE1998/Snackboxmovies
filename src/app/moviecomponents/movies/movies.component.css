@@ -1,0 +1,17 @@
+.movieimgcard{
+    max-width: 100%;
+}
+.backgroundimage{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.overlay{
+    backdrop-filter: opacity(0.5);
+    background-color: rgba(255, 143, 163,0.5);
+}
+
+span.fas, i{
+    background-color: #FFB3C1;
+    color: #800F2F;
+    padding: 5px;
+}

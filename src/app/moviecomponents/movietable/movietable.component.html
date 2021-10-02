@@ -1,0 +1,45 @@
+<app-shadowedbox *ngIf="!errormessage">
+    <table class="rounded">
+        <tbody>
+            <tr [ngStyle]='{backgroundColor: headcolor}'>
+                <th ><h3>Top rated movies</h3></th>
+                <th></th>
+                <th ></th>
+            </tr>
+            <tr *ngIf="isLoading">
+                <th colspan="100%" class="py-5 text-center"><app-loader></app-loader></th>
+            </tr>
+
+            <tr *ngFor="let movie of MovieList" class="zoom-on-hover">
+                <td><img [src]="movie.img" class="imgfitstable"></td>
+                <td>
+                    <app-modalopenbutton [inputid]="'#movie' + movie?.id"><h5 class="text-start" style="color: inherit;">{{movie?.name}}</h5></app-modalopenbutton>
+                    
+                    <p> <span class="fas fa-star"></span> {{movie?.rating}} </p>
+                    <span *ngFor="let elem of movie?.genreId"> <app-nofuncbutton [ngClass]="'me-2'"><p class="m-0" style="font-size: 0.8rem;"> {{elem || -1 | genre: genreList || []}} </p></app-nofuncbutton></span>
+                    
+                </td>
+                <td >{{movie?.releaseDate?.getFullYear()}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="text-start">
+                    <button class="unstyled paginationbutton" [disabled]="page==1" (click)="prevpage()">
+                        <i style="color: inherit;" class="fas fa-caret-left fa-2x"></i>
+                    </button> | 
+                    <button class="unstyled paginationbutton" (click)="nextpage()">
+                        <i style="color: inherit;" class="fas fa-caret-right fa-2x"></i>
+                    </button>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</app-shadowedbox>
+<app-moviepreviewmodal *ngFor="let movie of MovieList" [movie]="movie" [movieId]="'movie' + movie?.id" [genreList]="genreList"></app-moviepreviewmodal>
+
+<app-shadowedbox *ngIf="!!errormessage">
+    <div class="p-4">
+        <h3> OOPS, An error has occured, please try again later</h3>
+    </div> 
+</app-shadowedbox>

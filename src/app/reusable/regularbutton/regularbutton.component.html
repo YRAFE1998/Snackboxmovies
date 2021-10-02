@@ -1,0 +1,6 @@
+<button [ngStyle] = "{backgroundColor:bgColor,
+      'color':color,
+      'width': width
+    }" class="rounded regularbutton mx-1" (click)="onClick(id || '',$event)" [disabled] = "disabled">
+    <ng-content></ng-content>
+</button>

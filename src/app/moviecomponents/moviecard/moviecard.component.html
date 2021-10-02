@@ -1,0 +1,7 @@
+<div class="shadow card" (click)="gotoMovie()" style="cursor: pointer;" >
+    <img [src]="movie?.img" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-title">{{movie?.name}}</p>
+      <p class="card-text"> <span class="fas fa-star"></span> {{movie?.rating}}</p>
+    </div>
+</div>

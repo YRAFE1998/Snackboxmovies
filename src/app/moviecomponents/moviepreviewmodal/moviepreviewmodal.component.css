@@ -1,0 +1,20 @@
+.showtransition{
+    display: block;
+}
+
+@media (min-width: 800px){
+.modal-dialog {
+    max-width: 750px;
+}
+}
+
+.movieimgcard{
+    max-width: 100%;
+}
+.lines-4{
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

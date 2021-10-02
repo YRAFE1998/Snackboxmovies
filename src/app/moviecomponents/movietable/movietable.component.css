@@ -1,0 +1,75 @@
+button.unstyled{
+    background-color: transparent;
+    border:none;
+
+}
+
+th{
+    font-weight: lighter;
+    padding: 10px 15px;
+    text-align: left;
+    color:white;
+}
+
+td{
+    padding: 10px 15px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-weight: bolder;
+}
+tr{
+    border-collapse: separate;
+}
+tr:nth-child(even) {background: #FFF0F3 }
+tr:nth-child(odd) {background: white;color: #c84c8c !important;}
+
+table{
+    border-collapse: collapse;
+    overflow: hidden;
+    width: 100%
+}
+tbody{
+    border-collapse: collapse;
+    border-radius: 7px;
+
+}
+
+.align-center{
+    text-align: center !important;
+}
+
+.imgfitstable{
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
+/*
+.zoom-on-hover:hover .imgfitstable{
+    transition:ease-in-out;
+    transition-duration: 0.5s;
+    width: 140px;
+    height: 140px;
+}
+.zoom-on-hover .imgfitstable{
+    transition:ease-in-out;
+    transition-duration: 0.5s;
+}*/
+.imageelementcontainer{
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginationbutton{
+    color: #590D22;
+}
+button:disabled{
+    color: gray !important;
+    cursor:not-allowed;
+}
+.paginationbutton:disabled{
+}

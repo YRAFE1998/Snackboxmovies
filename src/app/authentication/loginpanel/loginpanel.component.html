@@ -1,0 +1,74 @@
+<app-shadowedbox>
+    <div class="d-flex flex-column p-4" style="background-color: white;">
+        <section class="logintitle">
+            <h1>Login</h1>
+        </section>
+        <div *ngIf="generalerror" class="shadow-sm errormessage-container">
+            <h6>{{generalerror}}</h6>
+        </div>
+        <section class="loginform">
+            <form #authForm="ngForm" (ngSubmit) = "onSubmit(authForm)">
+                <div class="formstyle">
+                    <div class="row">
+                        <div class="col-12">
+                            <i class="fas fa-envelope fa-lg" style="color: #c84c8c;"></i>
+                            <label for="username" class="label">
+                                Username
+                            </label>
+                        </div>
+                        <div class="col-12">
+                            <input 
+                            name="username" 
+                            id="username" 
+                            class="forminput" 
+                            placeholder="Username"
+                            ngModel
+                            required
+                            email
+                            #email="ngModel"
+                            />    
+                        </div>
+                        <div class="col-12 text-danger" *ngIf="!email.valid && email.touched">
+                            <p>{{email.value == ""?'This field is required':'Please enter a valid format'}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <i class="fas fa-key fa-lg" style="color: #c84c8c;"></i>
+                            <label for="password" class="label">
+                                Password
+                            </label>    
+                        </div>
+                        <div class="col-12">
+                            <input 
+                            type="password"
+                            id="password" 
+                            name="password" 
+                            class="forminput" 
+                            placeholder="Password"
+                            ngModel
+                            required
+                            password
+                            #password="ngModel"
+                            minlength="8"
+                           />    
+
+                        </div>
+                        
+                        <div class="col-12 text-danger" *ngIf="!password.valid && password.touched">
+                            <p>{{password.value==""?"This field is required":"Password must be more than 8 characters"}}</p>
+                        </div>
+
+                    </div>
+                    <div class="checkboxcontainer mb-3">        
+                        <input type="checkbox" name="remmemberme" id="remmemberme" />                        
+                        <label for="remmemberme" style="margin-left:5px"> Rememmber me?</label>
+                    </div>
+                    <button class="regular-button rounded" [disabled]="!authForm.valid" type="submit"> Sign in</button>
+                </div>
+            </form>        
+        </section>
+
+    </div>
+</app-shadowedbox>

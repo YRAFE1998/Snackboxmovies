@@ -5,7 +5,20 @@
 export const environment = {
   production: false
 };
+export const tmdb_env = {
+  base_url : "https://api.themoviedb.org/3",
+  image_base_url: "https://image.tmdb.org/t/p/w500",
+  API_KEY: "f36e1abd7b1bb7561a3768b154be7599"
+}
 
+export const auth_env = [
+  {
+    username:"yousef.refaat@gmail.com",
+    password:"1234567890",
+    id:"dfh85jg25fg2jfghmhg",
+    token:'f36e1abd7b1bb7561a3768b154be7599'
+  }
+]
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

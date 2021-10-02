@@ -1,0 +1,125 @@
+
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+
+@media (min-width:610px) {
+    .loginpanel{
+        width: 500px;
+        margin-top: 100px !important;
+}    
+}
+
+
+.loginpanel{
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: white;
+    color: black;
+    padding: 10px 20px 25px 20px;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    margin-bottom: 50px;
+
+}
+
+.logintitle{
+    text-align: center;
+    margin: 20px auto;
+    font-family: 'Bebas Neue';
+}
+
+.loginform{
+   /* display: flex;
+    flex: auto;
+    margin: auto;*/
+}
+.label{
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0px;
+}
+input{
+    background-color: #e8e4e4;
+    min-height: 20px;
+    border-radius: 3px;
+    border-color: transparent;
+    min-height: 40px;
+    display: block;
+    margin: 5px 0px 15px 0px;
+    font-size: 1.2rem;
+    padding: 3px 10px;
+}
+.loginbutton{
+    background-color: #c84c8c;
+    color: white;
+    font-family: 'Bebas Neue';
+    font-size: 1.3rem;
+    padding: 10px;
+    width: 100%;
+}
+[role="button"]:hover,button:hover{
+    filter: opacity(0.8);
+}
+
+input[type="checkbox"]{
+    display: inline-block;
+    margin: 0px !important;
+    width: auto !important;
+}
+.checkboxcontainer{
+    display: flex;
+    align-items: center;
+}
+
+.signupsection{
+    margin: auto;
+}
+
+.forminput{
+    width: 100%;
+}
+
+.margin-top5{
+    margin-top: 20px;
+}
+
+input:focus{
+    border-color: white !important  ;
+}
+
+input[role="button"]{
+    cursor: pointer;
+}
+
+.panel{
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: white;
+    color: black;
+    padding: 0px;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+input.ng-invalid.ng-touched{
+    background-color: white;
+    border: solid 1px red;
+}
+
+.errormessage-container{
+    padding: 10px;
+    color: red;
+    border-radius: 5px;
+    background-color: #FFF0F3;
+    margin-bottom: 10px;
+}

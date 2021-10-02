@@ -1,0 +1,15 @@
+.unstyledinput{
+    padding: 5px;
+    min-width: 70%;
+    border: none;
+}
+.unstyledinput:focus{
+    outline: none;
+}
+.searchbox{
+    background-color: white;
+    padding: 5px 10px;
+}
+.outlined{
+    outline: black solid 1px;
+}
